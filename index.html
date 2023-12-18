@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Guide</title>
+</head>
+<body>
+    <div id='bodybox'>
+        <h2>Authentication in React Using Firebase</h2>
+        <p>This Guide describes how to set up a react project with Firebase database</p>
+        <ul style="list-style-type:disc">
+          <li>Create React App</li>
+          <li>Set up a Firebase database</li>
+          <li>Firebase Authentication</li>
+          <li>Install Firebase to React</li>
+          <li>Create a Firebase app for your project</li>
+        </ul>
+        <br>
+        <h3><p>Create React App</p></h3>
+        <p>Create React App is a comfortable environment for <b>learning React</b>, and is the best way to start building <b>a new single-page application</b> in React.</p>
+        <p>It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production.</p>
+        <pre><code><p>
+            npx create-react-app react-firebase-auth
+            cd react-firebase-auth
+            npm start
+        </p>
+        </code></pre>
+        <!--<pre><code>if (lastUserMessage === 'what is your name'){
+        botMessage = 'My name is' + botName;
+      }</pre></code>-->
+      
+      
+        <br>
+        <br>
+        <h3><p>Note</p></h3>
+        <p>Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses Babel and webpack, but you don’t need to know anything about them.</p>
+        <p>When you’re ready to deploy to production, running npm run build will create an optimized build of your app in the build folder. You can learn more about Create React App <a href="https://github.com/facebook/create-react-app#create-react-app--">from its README</a> and the <a href="https://create-react-app.dev">User Guide.</a></p>
+
+        <br>
+        <br>
+        <br>
+        <br>
+            <h3><p>Set up a Firebase database</p></h3>
+            <ol>
+                <li>Visit <a href="https://www.google.com/aclk?sa=l&ai=DChcSEwiqkef925mDAxUoUpEFHQbJDg8YABAAGgJscg&gclid=CjwKCAiA-P-rBhBEEiwAQEXhHz8e1NxLhwvRuUXn4c_5sywOh--fKMRb19dZscgI6pimJaykAP-ouxoCujgQAvD_BwE&sig=AOD64_24kZ5xOHBVVLcNNkFSjNCJgilF9Q&q&adurl&ved=2ahUKEwi3quD925mDAxVdCRAIHQnNBdEQ0Qx6BAgFEAE">Firebase</a> website.</li>
+                <li>Press <b>Get Started</b> and <b>Create an account</b>.</li>
+                <li>When you have successfully made an account press <b>Add project</b> and enter your project name.</li>
+                <li>Turn off the <b>Enable Google Analytics for this project</b> and <b>Create project</b>.</li>
+            </ol>
+            <p>Now you have a Firebase project set up.</p>
+        
+        <br>
+        <br>
+
+            <h3><p>Firebase Authentication</p></h3>
+            <ol>
+                <li>Go to the <b>Authentication</b> tab in your Firebase project.</li>
+                <li>Press <b>Set up sign-in method</b>.</li>
+                <li>Press <b>Email/Password</b> and <b>Enable</b>.</li>
+                <li>Press <b>Save</b>.</li>
+            </ol>
+        
+        <br>
+        <br>
+
+            <h3><p>Install Firebase to React</p></h3>
+            <p>Install Firebase to your React project by running the following command in your <b>project</b> terminal:</p>
+            <pre><code><h6>npm install firebase</h6></code></pre>
+            <p>Now you have Firebase installed to your React project.</p>
+
+        <br>
+        <br>
+
+            <h3><p>Create a Firebase app for your project</p></h3>
+            <p>Go to settings right next to <b>Project Overview</b> and press <b>Project Settings</b> at the bottom of the <b>General page press the web solution <b>"&lt;/&gt;"</b></p>
+            </b>
+            <ol>
+                <li>Enter <b>react firebase auth</b>.</li>
+                <li>Press <b>Register app</b>.</li>
+                <li>Copy the <b>firebaseConfig</b> object.</li>
+                <li>Paste the <b>firebaseConfig</b> in a new file called <b>firebase.js</b> in the src folder.</li>
+                <li>Press <b>Continue to console</b>.</li>
+            </ol>
+
+
+        <br>
+        <br>
+        <h3><p>Links:</p></h3>
+        <ul style="list-style-type:disc">
+          <li><a href="https://www.w3schools.com/js/js_strings.asp">tutorial on strings</a></li>
+          <li><a href="https://www.w3schools.com/js/js_string_methods.asp">string methods</a></li>
+          <li><a href="https://www.w3schools.com/jsref/jsref_obj_string.asp">string reference</a></li>
+          <li><a href="https://www.w3schools.com/js/js_regexp.asp">regular expressions tutorial</a></li>
+          <li><a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">W3 schools regular expressions reference</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">MDN regular expressions reference</a></li>
+          <li><a href="http://regexr.com/">Testing your regular expressions</a></li>
+        </ul>
+        <center><img src="https://lilgreenland.github.io/images/BMO.jpg" align="middle"></center>
+      </div>
+</body>
+</html>
