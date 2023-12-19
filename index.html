@@ -16,6 +16,7 @@
           <li>Firebase Authentication</li>
           <li>Install Firebase to React</li>
           <li>Create a Firebase app for your project</li>
+          <li>Components credentials</li>
         </ul>
         <br>
         <h3><p>Create React App</p></h3>
@@ -83,6 +84,147 @@
                 <li>Paste the <b>firebaseConfig</b> in a new file called <b>firebase.js</b> in the src folder.</li>
                 <li>Press <b>Continue to console</b>.</li>
             </ol>
+            <p>Now in the src <b>firebase.js</b> file set in code:</p>
+            <pre><code><h6>const app = initializeApp(firebaseConfig); <br><br>export const auth = app.auth();
+            </h6></code></pre>
+
+        <br>
+        <br>
+
+            <h3><p>Components credentials</p></h3>
+            <p>make a new folder called <b>components</b> and another folder called <b>auth</b> in <b>src</b> and create a new file called <b>SignIn.jsx</b></p>
+
+            <p>Add these lines of code in your new SignIn.jsx</p>
+            <pre><code><h6>import { signInWithEmailAndPassword } from "firebase/auth";<br>import React, { useState } from "react";<br>import { auth } from "../../firebase";<br><br>const SignIn = () => {
+                const [email, setEmail] = useState("");
+                const [password, setPassword] = useState("");
+                
+                const signIn = (e) => {
+                    e.preventDefault();
+                    signInWithEmailAndPassword(auth, email, password)
+                      .then((userCredential) => {
+                        console.log(userCredential);
+                      })
+                      .catch((error) => {
+                        console.log(error);
+                      });
+                  };
+                
+                  <br>return (
+    div className="sign-in-container">
+        form onSubmit={signIn}>
+            h1>Log In to your Account
+                input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            >/input>
+            input
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            >/input>
+            button type="submit">Log In</button>
+            /form>
+        /div>
+        );
+    };
+    
+    export default SignIn;
+                
+            </h6></code></pre>
+
+            <p>Now you have successfully made a sign in credential</p>
+            <p>Now we need to import it to our <b>App.js</b> </p>
+
+            <p>Set in the following code:</p>
+            <pre><code><h6>
+                <br>import SignIn from "./components/SignIn/SignIn";
+                <br>function App() {
+        return (
+            div className="App">
+                SignIn />
+            /div>
+        );
+    }
+                
+export default App;
+            </h6></code></pre>
+
+        <br>
+
+            <p>Now create another file in <b>auth</b> called <b>SignUp.jsx</b></p>
+            <p>Write the following</p>
+
+            <pre><code><h6>import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import { auth } from "../../firebase";
+
+const SignUp = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const signUp = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+        console.log(userCredential);
+        })
+        .catch((error) => {
+        console.log(error);
+        });
+    };
+
+    return (
+    div className="sign-in-container">
+        form onSubmit={signUp}>
+        h1>Create Account
+        input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+        >/input>
+        input
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+        >/input>
+        button type="submit">Sign Up</button>
+        /form>
+    /div>
+    );
+};
+
+export default SignUp;
+
+            </h6></code></pre>
+
+    <br>
+        <p>Now we need to import it to our <b>App.js</b> </p>
+        <p>As shown here:</p>
+        <pre><code><h6>
+import logo from './logo.svg';
+import './App.css';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import AuthDetails from './components/AuthDetails';
+
+function App() {
+  return (
+    div className="App">
+      SignIn />
+      SignUp />
+      AuthDetails />
+    /div>
+  );
+}
+
+export default App;
+        </h6></code></pre>
 
 
         <br>
@@ -99,5 +241,7 @@
         </ul>
         <center><img src="https://lilgreenland.github.io/images/BMO.jpg" align="middle"></center>
       </div>
+
+      <script src="main.js"></script>
 </body>
 </html>

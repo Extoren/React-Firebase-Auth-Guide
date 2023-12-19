@@ -29,6 +29,7 @@ body {
     background-color: #303030;
     padding: 0;
     line-height: 1;
+    overflow: scroll;
   }
 
   h6 {
@@ -42,3 +43,4 @@ body {
     margin-left: -80px;
     color: white;
   }
+  
