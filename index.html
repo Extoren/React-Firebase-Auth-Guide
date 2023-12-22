@@ -211,6 +211,82 @@ import logo from './logo.svg';
 import './App.css';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+
+function App() {
+  return (
+    div className="App">
+      SignIn />
+      SignUp />
+    /div>
+  );
+}
+
+export default App;
+        </h6></code></pre>
+
+
+        <br>
+        <br>
+
+    
+        <h3><p>Authentication Details</p></h3>
+        <p>Now we need to create a new file called <b>AuthDetails.jsx</b> in <b>components</b> folder</p>
+        <p>Write the following code:</p>
+        <pre><code><h6>
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { auth } from "../firebase";
+
+const AuthDetails = () => {
+  const [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("sign out successful");
+      })
+      .catch((error) => console.log(error));
+  };
+
+  return (
+    div>
+      {authUser ? (
+        <>
+          p>{`Signed In as ${authUser.email}`}/p>
+          button onClick={userSignOut}>Sign Out/button>
+        </>
+      ) : (
+        p>Signed Out/p>
+      )}
+    /div>
+  );
+};
+
+export default AuthDetails;
+        </h6></code></pre>
+
+<br>    
+<p>Now we need to import it to our <b>App.js</b> </p>
+<p>As shown here:</p>
+<pre><code><h6>
+import logo from './logo.svg';
+import './App.css';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 import AuthDetails from './components/AuthDetails';
 
 function App() {
@@ -224,22 +300,23 @@ function App() {
 }
 
 export default App;
-        </h6></code></pre>
+</h6></code></pre>
 
 
-        <br>
-        <br>
-        <h3><p>Links:</p></h3>
-        <ul style="list-style-type:disc">
-          <li><a href="https://www.w3schools.com/js/js_strings.asp">tutorial on strings</a></li>
-          <li><a href="https://www.w3schools.com/js/js_string_methods.asp">string methods</a></li>
-          <li><a href="https://www.w3schools.com/jsref/jsref_obj_string.asp">string reference</a></li>
-          <li><a href="https://www.w3schools.com/js/js_regexp.asp">regular expressions tutorial</a></li>
-          <li><a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">W3 schools regular expressions reference</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">MDN regular expressions reference</a></li>
-          <li><a href="http://regexr.com/">Testing your regular expressions</a></li>
-        </ul>
-        <center><img src="https://lilgreenland.github.io/images/BMO.jpg" align="middle"></center>
+<br>
+<br>
+
+<h3><p>Now you have completed the guide</p></h3>
+<ul>
+    <li>Now you can run your project by typing <b>npm start</b> in your terminal</li>
+    <li>Now you can sign in and sign up to your project</li>
+    <li>Now you can see your authentication details</li>
+    <li>Now you can sign out</li>
+</ul>
+
+
+
+
       </div>
 
       <script src="main.js"></script>
